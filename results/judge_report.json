@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "documents": 40,
+    "queries": 96,
+    "splits": {
+      "dev": 27,
+      "test": 69
+    },
+    "labels": {
+      "safe": 34,
+      "harmful": 42,
+      "ambiguous": 20
+    },
+    "note": "Test items are held out. Development items are for inspection only. The judge was not fitted to either split."
+  },
+  "test": {
+    "judge": {
+      "harmful_total": 31,
+      "useful_total": 25,
+      "hrdr": 1.0,
+      "harmful_false_acceptance_rate": 0.0,
+      "useful_rewrite_rejection_rate": 0.48,
+      "safe_rewrite_rejection_rate": 0.48
+    },
+    "ambiguous": {
+      "ambiguous_total": 13,
+      "ambiguous_accuracy": 0.7692307692307693,
+      "ambiguous_f1_reject": 0.8695652173913044,
+      "ambiguous_f1_accept": 0.0,
+      "ambiguous_macro_f1": 0.4347826086956522
+    }
+  },
+  "dev": {
+    "judge": {
+      "harmful_total": 11,
+      "useful_total": 9,
+      "hrdr": 0.9090909090909091,
+      "harmful_false_acceptance_rate": 0.09090909090909091,
+      "useful_rewrite_rejection_rate": 0.5555555555555556,
+      "safe_rewrite_rejection_rate": 0.5555555555555556
+    },
+    "ambiguous": {
+      "ambiguous_total": 7,
+      "ambiguous_accuracy": 0.7142857142857143,
+      "ambiguous_f1_reject": 0.8333333333333334,
+      "ambiguous_f1_accept": 0.0,
+      "ambiguous_macro_f1": 0.4166666666666667
+    }
+  }
+}

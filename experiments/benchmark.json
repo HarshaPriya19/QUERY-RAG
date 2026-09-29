@@ -1,0 +1,1750 @@
+{
+  "meta": {
+    "documents": 40,
+    "queries": 96,
+    "splits": {
+      "dev": 27,
+      "test": 69
+    },
+    "labels": {
+      "safe": 34,
+      "harmful": 42,
+      "ambiguous": 20
+    },
+    "note": "Test items are held out. Development items are for inspection only. The judge was not fitted to either split."
+  },
+  "items": [
+    {
+      "id": "d_abbrev_lite",
+      "split": "dev",
+      "label": "safe",
+      "category": "abbreviation",
+      "query": "How much does the NB Lite weigh?",
+      "rewrite": "How much does the NovaBook Lite weigh?",
+      "original": "How much does the NB Lite weigh?",
+      "rewritten": "How much does the NovaBook Lite weigh?",
+      "gold_doc_ids": [
+        "novabook_lite"
+      ],
+      "expected_facts": [
+        "weighs 1.1 kg"
+      ],
+      "expected_safe": true,
+      "note": "Abbreviation expansion only."
+    },
+    {
+      "id": "d_syn_sendback",
+      "split": "dev",
+      "label": "safe",
+      "category": "synonym",
+      "query": "How do I send back a NovaBook Air?",
+      "rewrite": "How do I return a NovaBook Air?",
+      "original": "How do I send back a NovaBook Air?",
+      "rewritten": "How do I return a NovaBook Air?",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "return window is 14 days"
+      ],
+      "expected_safe": true,
+      "note": "Everyday verb replaced with the catalog verb."
+    },
+    {
+      "id": "d_syn_student",
+      "split": "dev",
+      "label": "safe",
+      "category": "synonym",
+      "query": "What is the student deal minimum?",
+      "rewrite": "What is the student discount minimum?",
+      "original": "What is the student deal minimum?",
+      "rewritten": "What is the student discount minimum?",
+      "gold_doc_ids": [
+        "student_discount"
+      ],
+      "expected_facts": [
+        "Rs 20000"
+      ],
+      "expected_safe": true,
+      "note": "Deal and discount name the same offer."
+    },
+    {
+      "id": "d_syn_before",
+      "split": "dev",
+      "label": "safe",
+      "category": "temporal",
+      "query": "Can you ship to Ladakh prior to 2025?",
+      "rewrite": "Can you ship to Ladakh before 2025?",
+      "original": "Can you ship to Ladakh prior to 2025?",
+      "rewritten": "Can you ship to Ladakh before 2025?",
+      "gold_doc_ids": [
+        "shipping_remote"
+      ],
+      "expected_facts": [
+        "not available before 2025"
+      ],
+      "expected_safe": true,
+      "note": "Prior to and before are the same relation."
+    },
+    {
+      "id": "d_sem_one_month",
+      "split": "dev",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "What is the NovaBook Pro return window of 30 days?",
+      "rewrite": "What is the NovaBook Pro return window of one month?",
+      "original": "What is the NovaBook Pro return window of 30 days?",
+      "rewritten": "What is the NovaBook Pro return window of one month?",
+      "gold_doc_ids": [
+        "novabook_pro"
+      ],
+      "expected_facts": [
+        "return window is 30 days"
+      ],
+      "expected_safe": true,
+      "note": "One month is being used as the ordinary name for a 30 day window."
+    },
+    {
+      "id": "d_sem_price_words",
+      "split": "dev",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "Is the NovaBook Air price Rs 45000?",
+      "rewrite": "Is the NovaBook Air price forty-five thousand rupees?",
+      "original": "Is the NovaBook Air price Rs 45000?",
+      "rewritten": "Is the NovaBook Air price forty-five thousand rupees?",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "Rs 45000"
+      ],
+      "expected_safe": true,
+      "note": "Same price written out in words."
+    },
+    {
+      "id": "d_syn_except",
+      "split": "dev",
+      "label": "safe",
+      "category": "negation",
+      "query": "Are returns excluding refurbished PixelTab units allowed?",
+      "rewrite": "Are returns except refurbished PixelTab units allowed?",
+      "original": "Are returns excluding refurbished PixelTab units allowed?",
+      "rewritten": "Are returns except refurbished PixelTab units allowed?",
+      "gold_doc_ids": [
+        "pixeltab"
+      ],
+      "expected_facts": [
+        "Refurbished PixelTab units are not returnable"
+      ],
+      "expected_safe": true,
+      "note": "Excluding and except carry the same exclusion."
+    },
+    {
+      "id": "d_filler_launch",
+      "split": "dev",
+      "label": "safe",
+      "category": "abbreviation",
+      "query": "Please tell me when the PixelTab launched.",
+      "rewrite": "When did the PixelTab launch?",
+      "original": "Please tell me when the PixelTab launched.",
+      "rewritten": "When did the PixelTab launch?",
+      "gold_doc_ids": [
+        "pixeltab"
+      ],
+      "expected_facts": [
+        "August 2024"
+      ],
+      "expected_safe": true,
+      "note": "Politeness removed, question otherwise unchanged."
+    },
+    {
+      "id": "d_h_entity",
+      "split": "dev",
+      "label": "harmful",
+      "category": "entity",
+      "query": "How long is the NovaBook Air warranty?",
+      "rewrite": "How long is the NovaBook Pro warranty?",
+      "original": "How long is the NovaBook Air warranty?",
+      "rewritten": "How long is the NovaBook Pro warranty?",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "warranty lasts 1 year"
+      ],
+      "expected_safe": false,
+      "note": "Sibling laptop substituted."
+    },
+    {
+      "id": "d_h_threshold",
+      "split": "dev",
+      "label": "harmful",
+      "category": "constraint",
+      "query": "Do I get free shipping under Rs 2000?",
+      "rewrite": "Do I get free shipping over Rs 2000?",
+      "original": "Do I get free shipping under Rs 2000?",
+      "rewritten": "Do I get free shipping over Rs 2000?",
+      "gold_doc_ids": [
+        "shipping_metro"
+      ],
+      "expected_facts": [
+        "over Rs 2000"
+      ],
+      "expected_safe": false,
+      "note": "The threshold direction is reversed. The original asks about orders under the cutoff."
+    },
+    {
+      "id": "d_h_negation",
+      "split": "dev",
+      "label": "harmful",
+      "category": "negation",
+      "query": "Opened software for the NovaBook Air is not returnable, right?",
+      "rewrite": "Opened software for the NovaBook Air is returnable, right?",
+      "original": "Opened software for the NovaBook Air is not returnable, right?",
+      "rewritten": "Opened software for the NovaBook Air is returnable, right?",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "not returnable"
+      ],
+      "expected_safe": false,
+      "note": "Negation removed from the software exception."
+    },
+    {
+      "id": "d_h_scope",
+      "split": "dev",
+      "label": "harmful",
+      "category": "scope",
+      "query": "Only the original purchaser can file a warranty claim.",
+      "rewrite": "The original purchaser can file a warranty claim.",
+      "original": "Only the original purchaser can file a warranty claim.",
+      "rewritten": "The original purchaser can file a warranty claim.",
+      "gold_doc_ids": [
+        "warranty_claims"
+      ],
+      "expected_facts": [
+        "Only the original purchaser"
+      ],
+      "expected_safe": false,
+      "note": "Only is dropped, so the claim looks open to other people."
+    },
+    {
+      "id": "d_h_year",
+      "split": "dev",
+      "label": "harmful",
+      "category": "temporal",
+      "query": "Do claims after 2024 need an invoice number?",
+      "rewrite": "Do claims after 2023 need an invoice number?",
+      "original": "Do claims after 2024 need an invoice number?",
+      "rewritten": "Do claims after 2023 need an invoice number?",
+      "gold_doc_ids": [
+        "warranty_claims"
+      ],
+      "expected_facts": [
+        "after 2024"
+      ],
+      "expected_safe": false,
+      "note": "The year that starts the invoice rule is moved."
+    },
+    {
+      "id": "d_h_percent",
+      "split": "dev",
+      "label": "harmful",
+      "category": "number",
+      "query": "What is the student discount of 10%?",
+      "rewrite": "What is the student discount of 20%?",
+      "original": "What is the student discount of 10%?",
+      "rewritten": "What is the student discount of 20%?",
+      "gold_doc_ids": [
+        "student_discount"
+      ],
+      "expected_facts": [
+        "10%"
+      ],
+      "expected_safe": false,
+      "note": "Student rate replaced with the festival rate."
+    },
+    {
+      "id": "d_h_city",
+      "split": "dev",
+      "label": "harmful",
+      "category": "entity",
+      "query": "What does Bangalore screen repair cost?",
+      "rewrite": "What does Delhi screen repair cost?",
+      "original": "What does Bangalore screen repair cost?",
+      "rewritten": "What does Delhi screen repair cost?",
+      "gold_doc_ids": [
+        "repair_bangalore"
+      ],
+      "expected_facts": [
+        "Rs 3500"
+      ],
+      "expected_safe": false,
+      "note": "City desk substituted."
+    },
+    {
+      "id": "d_h_ladakh",
+      "split": "dev",
+      "label": "harmful",
+      "category": "temporal",
+      "query": "Is shipping to Ladakh unavailable before 2025?",
+      "rewrite": "Is shipping to Ladakh available before 2025?",
+      "original": "Is shipping to Ladakh unavailable before 2025?",
+      "rewritten": "Is shipping to Ladakh available before 2025?",
+      "gold_doc_ids": [
+        "shipping_remote"
+      ],
+      "expected_facts": [
+        "not available before 2025"
+      ],
+      "expected_safe": false,
+      "note": "Availability is flipped."
+    },
+    {
+      "id": "d_h_gift",
+      "split": "dev",
+      "label": "harmful",
+      "category": "negation",
+      "query": "Gift cards cannot be returned.",
+      "rewrite": "Gift cards can be returned.",
+      "original": "Gift cards cannot be returned.",
+      "rewritten": "Gift cards can be returned.",
+      "gold_doc_ids": [
+        "gift_cards"
+      ],
+      "expected_facts": [
+        "cannot be returned"
+      ],
+      "expected_safe": false,
+      "note": "Return prohibition removed."
+    },
+    {
+      "id": "d_h_window",
+      "split": "dev",
+      "label": "harmful",
+      "category": "intent",
+      "query": "What is the NovaBook Air return window?",
+      "rewrite": "Is the NovaBook Air returnable?",
+      "original": "What is the NovaBook Air return window?",
+      "rewritten": "Is the NovaBook Air returnable?",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "return window is 14 days"
+      ],
+      "expected_safe": false,
+      "note": "A duration question is rewritten as an eligibility question."
+    },
+    {
+      "id": "d_a_cheap",
+      "split": "dev",
+      "label": "ambiguous",
+      "category": "ambiguity",
+      "query": "Tell me about the cheap laptop.",
+      "rewrite": "Tell me about the NovaBook Lite.",
+      "original": "Tell me about the cheap laptop.",
+      "rewritten": "Tell me about the NovaBook Lite.",
+      "gold_doc_ids": [
+        "novabook_lite"
+      ],
+      "expected_facts": [
+        "Rs 28000"
+      ],
+      "expected_safe": false,
+      "note": "Lite is the lowest priced laptop, but the user never named it."
+    },
+    {
+      "id": "d_a_mountains",
+      "split": "dev",
+      "label": "ambiguous",
+      "category": "entity",
+      "query": "Can you deliver to the mountains?",
+      "rewrite": "Can you deliver to Ladakh?",
+      "original": "Can you deliver to the mountains?",
+      "rewritten": "Can you deliver to Ladakh?",
+      "gold_doc_ids": [
+        "shipping_remote"
+      ],
+      "expected_facts": [
+        "Ladakh"
+      ],
+      "expected_safe": false,
+      "note": "Ladakh is the only mountain destination in the policy, but it was inferred."
+    },
+    {
+      "id": "d_a_about",
+      "split": "dev",
+      "label": "ambiguous",
+      "category": "number",
+      "query": "The NovaBook Air return window is 14 days.",
+      "rewrite": "The NovaBook Air return window is about 14 days.",
+      "original": "The NovaBook Air return window is 14 days.",
+      "rewritten": "The NovaBook Air return window is about 14 days.",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "14 days"
+      ],
+      "expected_safe": false,
+      "note": "About softens an exact window. Some reviewers would still allow it."
+    },
+    {
+      "id": "d_a_adds_rate",
+      "split": "dev",
+      "label": "ambiguous",
+      "category": "number",
+      "query": "How does the student deal work?",
+      "rewrite": "How does the student discount of 10% work?",
+      "original": "How does the student deal work?",
+      "rewritten": "How does the student discount of 10% work?",
+      "gold_doc_ids": [
+        "student_discount"
+      ],
+      "expected_facts": [
+        "10%"
+      ],
+      "expected_safe": false,
+      "note": "The rate is true in the policy and absent from the question."
+    },
+    {
+      "id": "d_a_couple",
+      "split": "dev",
+      "label": "ambiguous",
+      "category": "semantic_equivalent",
+      "query": "Is a couple of weeks enough to return the NovaBook Air?",
+      "rewrite": "Is 14 days enough to return the NovaBook Air?",
+      "original": "Is a couple of weeks enough to return the NovaBook Air?",
+      "rewritten": "Is 14 days enough to return the NovaBook Air?",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "14 days"
+      ],
+      "expected_safe": true,
+      "note": "A couple of weeks is a loose gloss of the 14 day window."
+    },
+    {
+      "id": "d_a_repair_city",
+      "split": "dev",
+      "label": "ambiguous",
+      "category": "entity",
+      "query": "What does a screen repair cost?",
+      "rewrite": "What does Bangalore screen repair cost at Rs 3500?",
+      "original": "What does a screen repair cost?",
+      "rewritten": "What does Bangalore screen repair cost at Rs 3500?",
+      "gold_doc_ids": [
+        "repair_bangalore",
+        "repair_delhi"
+      ],
+      "expected_facts": [
+        "screen repair cost starts at Rs"
+      ],
+      "expected_safe": false,
+      "note": "Two cities publish different screen prices. The rewrite picks one and states it."
+    },
+    {
+      "id": "t_abbrev_pro",
+      "split": "test",
+      "label": "safe",
+      "category": "abbreviation",
+      "query": "NB Pro warrenty length",
+      "rewrite": "NovaBook Pro warranty length",
+      "original": "NB Pro warrenty length",
+      "rewritten": "NovaBook Pro warranty length",
+      "gold_doc_ids": [
+        "novabook_pro"
+      ],
+      "expected_facts": [
+        "warranty lasts 2 years"
+      ],
+      "expected_safe": true,
+      "note": "Abbreviation and a typo, same product and same question."
+    },
+    {
+      "id": "t_abbrev_air",
+      "split": "test",
+      "label": "safe",
+      "category": "abbreviation",
+      "query": "NB Air price",
+      "rewrite": "NovaBook Air price",
+      "original": "NB Air price",
+      "rewritten": "NovaBook Air price",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "Rs 45000"
+      ],
+      "expected_safe": true,
+      "note": "Short product name expanded."
+    },
+    {
+      "id": "t_abbrev_pt",
+      "split": "test",
+      "label": "safe",
+      "category": "abbreviation",
+      "query": "PT refrubished returns",
+      "rewrite": "PixelTab refurbished returns",
+      "original": "PT refrubished returns",
+      "rewritten": "PixelTab refurbished returns",
+      "gold_doc_ids": [
+        "pixeltab"
+      ],
+      "expected_facts": [
+        "Refurbished PixelTab units are not returnable"
+      ],
+      "expected_safe": true,
+      "note": "Abbreviation and a typo."
+    },
+    {
+      "id": "t_syn_gift",
+      "split": "test",
+      "label": "safe",
+      "category": "synonym",
+      "query": "gift voucher expiry",
+      "rewrite": "gift card expiration",
+      "original": "gift voucher expiry",
+      "rewritten": "gift card expiration",
+      "gold_doc_ids": [
+        "gift_cards"
+      ],
+      "expected_facts": [
+        "12 months"
+      ],
+      "expected_safe": true,
+      "note": "Voucher and expiry are the catalog's gift card and expiration."
+    },
+    {
+      "id": "t_syn_below",
+      "split": "test",
+      "label": "safe",
+      "category": "constraint",
+      "query": "Which tablets are priced below Rs 32000?",
+      "rewrite": "Which tablets are priced under Rs 32000?",
+      "original": "Which tablets are priced below Rs 32000?",
+      "rewritten": "Which tablets are priced under Rs 32000?",
+      "gold_doc_ids": [
+        "pixeltab_mini"
+      ],
+      "expected_facts": [
+        "Rs 18000"
+      ],
+      "expected_safe": true,
+      "note": "Below and under set the same ceiling. Mini is the tablet under that price."
+    },
+    {
+      "id": "t_syn_percent",
+      "split": "test",
+      "label": "safe",
+      "category": "number",
+      "query": "student discount of 10 percent",
+      "rewrite": "student discount of 10%",
+      "original": "student discount of 10 percent",
+      "rewritten": "student discount of 10%",
+      "gold_doc_ids": [
+        "student_discount"
+      ],
+      "expected_facts": [
+        "10%"
+      ],
+      "expected_safe": true,
+      "note": "Percent sign and the word percent."
+    },
+    {
+      "id": "t_syn_guarantee",
+      "split": "test",
+      "label": "safe",
+      "category": "synonym",
+      "query": "NB Pro guarantee length",
+      "rewrite": "NovaBook Pro warranty length",
+      "original": "NB Pro guarantee length",
+      "rewritten": "NovaBook Pro warranty length",
+      "gold_doc_ids": [
+        "novabook_pro"
+      ],
+      "expected_facts": [
+        "2 years"
+      ],
+      "expected_safe": true,
+      "note": "Guarantee is the everyday word for this warranty."
+    },
+    {
+      "id": "t_syn_sendback",
+      "split": "test",
+      "label": "safe",
+      "category": "synonym",
+      "query": "I want to send back my PixelBuds.",
+      "rewrite": "I want to return my PixelBuds.",
+      "original": "I want to send back my PixelBuds.",
+      "rewritten": "I want to return my PixelBuds.",
+      "gold_doc_ids": [
+        "pixelbuds"
+      ],
+      "expected_facts": [
+        "return window is 7 days"
+      ],
+      "expected_safe": true,
+      "note": "Send back means return."
+    },
+    {
+      "id": "t_filler_express",
+      "split": "test",
+      "label": "safe",
+      "category": "abbreviation",
+      "query": "Could you tell me the express shipping cost?",
+      "rewrite": "express shipping cost",
+      "original": "Could you tell me the express shipping cost?",
+      "rewritten": "express shipping cost",
+      "gold_doc_ids": [
+        "shipping_express"
+      ],
+      "expected_facts": [
+        "Rs 199"
+      ],
+      "expected_safe": true,
+      "note": "Filler removed."
+    },
+    {
+      "id": "t_syn_atleast",
+      "split": "test",
+      "label": "safe",
+      "category": "constraint",
+      "query": "The business lease asks for no less than 5 units.",
+      "rewrite": "The business lease asks for at least 5 units.",
+      "original": "The business lease asks for no less than 5 units.",
+      "rewritten": "The business lease asks for at least 5 units.",
+      "gold_doc_ids": [
+        "business_lease"
+      ],
+      "expected_facts": [
+        "5 units"
+      ],
+      "expected_safe": true,
+      "note": "No less than and at least are the same floor."
+    },
+    {
+      "id": "t_fmt_50k",
+      "split": "test",
+      "label": "safe",
+      "category": "number",
+      "query": "NovaBook Air price under 50k",
+      "rewrite": "NovaBook Air price under 50000",
+      "original": "NovaBook Air price under 50k",
+      "rewritten": "NovaBook Air price under 50000",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "Rs 45000"
+      ],
+      "expected_safe": true,
+      "note": "50k and 50000 are the same cutoff, and the Air sits under it."
+    },
+    {
+      "id": "t_fmt_two_years",
+      "split": "test",
+      "label": "safe",
+      "category": "number",
+      "query": "The NovaBook Pro warranty lasts two years.",
+      "rewrite": "The NovaBook Pro warranty lasts 2 years.",
+      "original": "The NovaBook Pro warranty lasts two years.",
+      "rewritten": "The NovaBook Pro warranty lasts 2 years.",
+      "gold_doc_ids": [
+        "novabook_pro"
+      ],
+      "expected_facts": [
+        "2 years"
+      ],
+      "expected_safe": true,
+      "note": "Number word and digit."
+    },
+    {
+      "id": "t_sem_two_weeks",
+      "split": "test",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "The NovaBook Air return window is 14 days.",
+      "rewrite": "The NovaBook Air return window is two weeks.",
+      "original": "The NovaBook Air return window is 14 days.",
+      "rewritten": "The NovaBook Air return window is two weeks.",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "14 days"
+      ],
+      "expected_safe": true,
+      "note": "Two weeks is 14 days."
+    },
+    {
+      "id": "t_sem_one_week",
+      "split": "test",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "A warranty claim must be filed within 7 days.",
+      "rewrite": "A warranty claim must be filed within one week.",
+      "original": "A warranty claim must be filed within 7 days.",
+      "rewritten": "A warranty claim must be filed within one week.",
+      "gold_doc_ids": [
+        "warranty_claims"
+      ],
+      "expected_facts": [
+        "within 7 days"
+      ],
+      "expected_safe": true,
+      "note": "One week is 7 days."
+    },
+    {
+      "id": "t_sem_twelve_months",
+      "split": "test",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "The NovaBook Air warranty lasts 1 year.",
+      "rewrite": "The NovaBook Air warranty lasts twelve months.",
+      "original": "The NovaBook Air warranty lasts 1 year.",
+      "rewritten": "The NovaBook Air warranty lasts twelve months.",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "1 year"
+      ],
+      "expected_safe": true,
+      "note": "Twelve months is one year."
+    },
+    {
+      "id": "t_sem_a_year",
+      "split": "test",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "A gift card expires 12 months after purchase.",
+      "rewrite": "A gift card expires a year after purchase.",
+      "original": "A gift card expires 12 months after purchase.",
+      "rewritten": "A gift card expires a year after purchase.",
+      "gold_doc_ids": [
+        "gift_cards"
+      ],
+      "expected_facts": [
+        "12 months"
+      ],
+      "expected_safe": true,
+      "note": "A year is 12 months."
+    },
+    {
+      "id": "t_sem_repair_words",
+      "split": "test",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "Bangalore screen repair cost starts at Rs 3500.",
+      "rewrite": "Bangalore screen repair cost starts at three thousand five hundred rupees.",
+      "original": "Bangalore screen repair cost starts at Rs 3500.",
+      "rewritten": "Bangalore screen repair cost starts at three thousand five hundred rupees.",
+      "gold_doc_ids": [
+        "repair_bangalore"
+      ],
+      "expected_facts": [
+        "Rs 3500"
+      ],
+      "expected_safe": true,
+      "note": "Same amount in words."
+    },
+    {
+      "id": "t_sem_two_thousand",
+      "split": "test",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "Free shipping on orders over two thousand rupees.",
+      "rewrite": "Free shipping on orders over Rs 2000.",
+      "original": "Free shipping on orders over two thousand rupees.",
+      "rewritten": "Free shipping on orders over Rs 2000.",
+      "gold_doc_ids": [
+        "shipping_metro"
+      ],
+      "expected_facts": [
+        "Rs 2000"
+      ],
+      "expected_safe": true,
+      "note": "Two thousand rupees is Rs 2000."
+    },
+    {
+      "id": "t_sem_24h",
+      "split": "test",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "Express shipping is next-day delivery.",
+      "rewrite": "Express shipping is delivery within 24 hours.",
+      "original": "Express shipping is next-day delivery.",
+      "rewritten": "Express shipping is delivery within 24 hours.",
+      "gold_doc_ids": [
+        "shipping_express"
+      ],
+      "expected_facts": [
+        "next-day delivery"
+      ],
+      "expected_safe": true,
+      "note": "Next-day delivery is a 24 hour promise."
+    },
+    {
+      "id": "t_sem_two_days",
+      "split": "test",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "Unopened refurbished units may be returned within 48 hours.",
+      "rewrite": "Unopened refurbished units may be returned within two days.",
+      "original": "Unopened refurbished units may be returned within 48 hours.",
+      "rewritten": "Unopened refurbished units may be returned within two days.",
+      "gold_doc_ids": [
+        "returns_refurbished"
+      ],
+      "expected_facts": [
+        "48 hours"
+      ],
+      "expected_safe": true,
+      "note": "48 hours is two days."
+    },
+    {
+      "id": "t_sem_nobody_except",
+      "split": "test",
+      "label": "safe",
+      "category": "scope",
+      "query": "Only the original purchaser can file a warranty claim.",
+      "rewrite": "Nobody except the person who bought the device can file a warranty claim.",
+      "original": "Only the original purchaser can file a warranty claim.",
+      "rewritten": "Nobody except the person who bought the device can file a warranty claim.",
+      "gold_doc_ids": [
+        "warranty_claims"
+      ],
+      "expected_facts": [
+        "Only the original purchaser"
+      ],
+      "expected_safe": true,
+      "note": "Same exclusivity, different wording."
+    },
+    {
+      "id": "t_sem_fifteen",
+      "split": "test",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "The employee discount is 15%.",
+      "rewrite": "The employee discount is fifteen percent.",
+      "original": "The employee discount is 15%.",
+      "rewritten": "The employee discount is fifteen percent.",
+      "gold_doc_ids": [
+        "employee_discount"
+      ],
+      "expected_facts": [
+        "15%"
+      ],
+      "expected_safe": true,
+      "note": "Fifteen percent is 15%."
+    },
+    {
+      "id": "t_h_air_pro",
+      "split": "test",
+      "label": "harmful",
+      "category": "entity",
+      "query": "What is the NovaBook Air warranty, not the Pro?",
+      "rewrite": "What is the NovaBook Pro warranty?",
+      "original": "What is the NovaBook Air warranty, not the Pro?",
+      "rewritten": "What is the NovaBook Pro warranty?",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "warranty lasts 1 year"
+      ],
+      "expected_safe": false,
+      "note": "The excluded sibling becomes the subject."
+    },
+    {
+      "id": "t_h_city",
+      "split": "test",
+      "label": "harmful",
+      "category": "entity",
+      "query": "Bangalore screen repair starts at what price?",
+      "rewrite": "Delhi screen repair starts at what price?",
+      "original": "Bangalore screen repair starts at what price?",
+      "rewritten": "Delhi screen repair starts at what price?",
+      "gold_doc_ids": [
+        "repair_bangalore"
+      ],
+      "expected_facts": [
+        "Rs 3500"
+      ],
+      "expected_safe": false,
+      "note": "Wrong city desk."
+    },
+    {
+      "id": "t_h_program",
+      "split": "test",
+      "label": "harmful",
+      "category": "entity",
+      "query": "How large is the student discount?",
+      "rewrite": "How large is the festival sale discount?",
+      "original": "How large is the student discount?",
+      "rewritten": "How large is the festival sale discount?",
+      "gold_doc_ids": [
+        "student_discount"
+      ],
+      "expected_facts": [
+        "10%"
+      ],
+      "expected_safe": false,
+      "note": "A different promotion is substituted."
+    },
+    {
+      "id": "t_h_14_30",
+      "split": "test",
+      "label": "harmful",
+      "category": "number",
+      "query": "NovaBook Air returns within 14 days",
+      "rewrite": "NovaBook Air returns within 30 days",
+      "original": "NovaBook Air returns within 14 days",
+      "rewritten": "NovaBook Air returns within 30 days",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "14 days"
+      ],
+      "expected_safe": false,
+      "note": "Air's window is replaced with the Pro window."
+    },
+    {
+      "id": "t_h_express_fee",
+      "split": "test",
+      "label": "harmful",
+      "category": "number",
+      "query": "Express shipping costs Rs 199.",
+      "rewrite": "Express shipping costs Rs 499.",
+      "original": "Express shipping costs Rs 199.",
+      "rewritten": "Express shipping costs Rs 499.",
+      "gold_doc_ids": [
+        "shipping_express"
+      ],
+      "expected_facts": [
+        "Rs 199"
+      ],
+      "expected_safe": false,
+      "note": "Fee changed."
+    },
+    {
+      "id": "t_h_tradein",
+      "split": "test",
+      "label": "harmful",
+      "category": "number",
+      "query": "NovaBook Air trade-in value is up to Rs 8000.",
+      "rewrite": "NovaBook Air trade-in value is up to Rs 80000.",
+      "original": "NovaBook Air trade-in value is up to Rs 8000.",
+      "rewritten": "NovaBook Air trade-in value is up to Rs 80000.",
+      "gold_doc_ids": [
+        "trade_in"
+      ],
+      "expected_facts": [
+        "Rs 8000"
+      ],
+      "expected_safe": false,
+      "note": "An extra zero changes the offer."
+    },
+    {
+      "id": "t_h_ladakh_flip",
+      "split": "test",
+      "label": "harmful",
+      "category": "temporal",
+      "query": "Shipping to Ladakh is not available before 2025.",
+      "rewrite": "Shipping to Ladakh is not available after 2025.",
+      "original": "Shipping to Ladakh is not available before 2025.",
+      "rewritten": "Shipping to Ladakh is not available after 2025.",
+      "gold_doc_ids": [
+        "shipping_remote"
+      ],
+      "expected_facts": [
+        "before 2025"
+      ],
+      "expected_safe": false,
+      "note": "Before and after select opposite periods."
+    },
+    {
+      "id": "t_h_invoice_direction",
+      "split": "test",
+      "label": "harmful",
+      "category": "temporal",
+      "query": "Claims after 2024 require an invoice number.",
+      "rewrite": "Claims before 2024 require an invoice number.",
+      "original": "Claims after 2024 require an invoice number.",
+      "rewritten": "Claims before 2024 require an invoice number.",
+      "gold_doc_ids": [
+        "warranty_claims"
+      ],
+      "expected_facts": [
+        "after 2024"
+      ],
+      "expected_safe": false,
+      "note": "The invoice rule is moved to the other side of 2024."
+    },
+    {
+      "id": "t_h_recall",
+      "split": "test",
+      "label": "harmful",
+      "category": "temporal",
+      "query": "Which NovaBook Pro batteries manufactured before March 2024 are recalled?",
+      "rewrite": "Which NovaBook Pro batteries manufactured after March 2024 are recalled?",
+      "original": "Which NovaBook Pro batteries manufactured before March 2024 are recalled?",
+      "rewritten": "Which NovaBook Pro batteries manufactured after March 2024 are recalled?",
+      "gold_doc_ids": [
+        "battery_recall"
+      ],
+      "expected_facts": [
+        "before March 2024"
+      ],
+      "expected_safe": false,
+      "note": "The recall cohort is reversed."
+    },
+    {
+      "id": "t_h_software",
+      "split": "test",
+      "label": "harmful",
+      "category": "negation",
+      "query": "Opened software is not eligible for a standard return.",
+      "rewrite": "Opened software is eligible for a standard return.",
+      "original": "Opened software is not eligible for a standard return.",
+      "rewritten": "Opened software is eligible for a standard return.",
+      "gold_doc_ids": [
+        "returns_standard"
+      ],
+      "expected_facts": [
+        "not eligible"
+      ],
+      "expected_safe": false,
+      "note": "Eligibility negation flipped."
+    },
+    {
+      "id": "t_h_water",
+      "split": "test",
+      "label": "harmful",
+      "category": "negation",
+      "query": "PixelBuds water damage is not covered.",
+      "rewrite": "PixelBuds water damage is covered.",
+      "original": "PixelBuds water damage is not covered.",
+      "rewritten": "PixelBuds water damage is covered.",
+      "gold_doc_ids": [
+        "pixelbuds"
+      ],
+      "expected_facts": [
+        "water damage is not covered"
+      ],
+      "expected_safe": false,
+      "note": "Coverage negation flipped."
+    },
+    {
+      "id": "t_h_swollen",
+      "split": "test",
+      "label": "harmful",
+      "category": "negation",
+      "query": "Batteries that are swollen are not accepted for mail-in repair.",
+      "rewrite": "Batteries that are swollen are accepted for mail-in repair.",
+      "original": "Batteries that are swollen are not accepted for mail-in repair.",
+      "rewritten": "Batteries that are swollen are accepted for mail-in repair.",
+      "gold_doc_ids": [
+        "repair_mailin"
+      ],
+      "expected_facts": [
+        "not accepted"
+      ],
+      "expected_safe": false,
+      "note": "A safety refusal is rewritten as acceptance."
+    },
+    {
+      "id": "t_h_liability",
+      "split": "test",
+      "label": "harmful",
+      "category": "negation",
+      "query": "The store is not responsible for data loss during data transfer.",
+      "rewrite": "The store is responsible for data loss during data transfer.",
+      "original": "The store is not responsible for data loss during data transfer.",
+      "rewritten": "The store is responsible for data loss during data transfer.",
+      "gold_doc_ids": [
+        "data_transfer"
+      ],
+      "expected_facts": [
+        "not responsible for data loss"
+      ],
+      "expected_safe": false,
+      "note": "Liability flipped."
+    },
+    {
+      "id": "t_h_online_only",
+      "split": "test",
+      "label": "harmful",
+      "category": "scope",
+      "query": "The festival sale applies to only online orders.",
+      "rewrite": "The festival sale applies to online and in-store orders.",
+      "original": "The festival sale applies to only online orders.",
+      "rewritten": "The festival sale applies to online and in-store orders.",
+      "gold_doc_ids": [
+        "festival_sale"
+      ],
+      "expected_facts": [
+        "only online orders"
+      ],
+      "expected_safe": false,
+      "note": "Online-only scope is widened to stores."
+    },
+    {
+      "id": "t_h_cities",
+      "split": "test",
+      "label": "harmful",
+      "category": "scope",
+      "query": "HomeScreen installation is offered only in Bangalore and Delhi.",
+      "rewrite": "HomeScreen installation is offered in every Northwind city.",
+      "original": "HomeScreen installation is offered only in Bangalore and Delhi.",
+      "rewritten": "HomeScreen installation is offered in every Northwind city.",
+      "gold_doc_ids": [
+        "installation"
+      ],
+      "expected_facts": [
+        "only in Bangalore and Delhi"
+      ],
+      "expected_safe": false,
+      "note": "Two-city scope becomes every city."
+    },
+    {
+      "id": "t_h_sku",
+      "split": "test",
+      "label": "harmful",
+      "category": "scope",
+      "query": "Price match applies to only the identical SKU.",
+      "rewrite": "Price match applies to similar SKUs.",
+      "original": "Price match applies to only the identical SKU.",
+      "rewritten": "Price match applies to similar SKUs.",
+      "gold_doc_ids": [
+        "price_match"
+      ],
+      "expected_facts": [
+        "only the identical SKU"
+      ],
+      "expected_safe": false,
+      "note": "Identical-SKU limit becomes similar products."
+    },
+    {
+      "id": "t_h_cutoff",
+      "split": "test",
+      "label": "harmful",
+      "category": "constraint",
+      "query": "Free shipping on orders over Rs 2000",
+      "rewrite": "Free shipping on orders under Rs 2000",
+      "original": "Free shipping on orders over Rs 2000",
+      "rewritten": "Free shipping on orders under Rs 2000",
+      "gold_doc_ids": [
+        "shipping_metro"
+      ],
+      "expected_facts": [
+        "over Rs 2000"
+      ],
+      "expected_safe": false,
+      "note": "Cutoff direction reversed."
+    },
+    {
+      "id": "t_h_drop_tablet",
+      "split": "test",
+      "label": "harmful",
+      "category": "multi_constraint",
+      "query": "Student discount of 10% that is not valid on the PixelTab, minimum Rs 20000, until December 2025",
+      "rewrite": "Student discount of 10%",
+      "original": "Student discount of 10% that is not valid on the PixelTab, minimum Rs 20000, until December 2025",
+      "rewritten": "Student discount of 10%",
+      "gold_doc_ids": [
+        "student_discount"
+      ],
+      "expected_facts": [
+        "not valid on the PixelTab"
+      ],
+      "expected_safe": false,
+      "note": "Percent kept, product exclusion, minimum, and end date removed."
+    },
+    {
+      "id": "t_h_drop_pro",
+      "split": "test",
+      "label": "harmful",
+      "category": "constraint",
+      "query": "Festival sale of 20% until 15 November 2025, not valid on the NovaBook Pro",
+      "rewrite": "Festival sale of 20% until 15 November 2025",
+      "original": "Festival sale of 20% until 15 November 2025, not valid on the NovaBook Pro",
+      "rewritten": "Festival sale of 20% until 15 November 2025",
+      "gold_doc_ids": [
+        "festival_sale"
+      ],
+      "expected_facts": [
+        "not valid on the NovaBook Pro"
+      ],
+      "expected_safe": false,
+      "note": "The Pro exclusion is the detail that changes which laptop qualifies."
+    },
+    {
+      "id": "t_h_express_drop",
+      "split": "test",
+      "label": "harmful",
+      "category": "multi_constraint",
+      "query": "Express next-day shipping for Rs 199 in metro cities, not for the HomeScreen monitor",
+      "rewrite": "Express shipping",
+      "original": "Express next-day shipping for Rs 199 in metro cities, not for the HomeScreen monitor",
+      "rewritten": "Express shipping",
+      "gold_doc_ids": [
+        "shipping_express"
+      ],
+      "expected_facts": [
+        "not available for the HomeScreen monitor"
+      ],
+      "expected_safe": false,
+      "note": "Fee, speed, geography, and the monitor exclusion all disappear."
+    },
+    {
+      "id": "t_h_add_refurb",
+      "split": "test",
+      "label": "harmful",
+      "category": "entity",
+      "query": "What is the NovaBook Air return policy?",
+      "rewrite": "What is the refurbished NovaBook Air return policy?",
+      "original": "What is the NovaBook Air return policy?",
+      "rewritten": "What is the refurbished NovaBook Air return policy?",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "return window is 14 days"
+      ],
+      "expected_safe": false,
+      "note": "Refurbished is a different returns regime and was not in the question."
+    },
+    {
+      "id": "t_h_add_years",
+      "split": "test",
+      "label": "harmful",
+      "category": "number",
+      "query": "How long is the NovaBook Air warranty?",
+      "rewrite": "How long is the NovaBook Air 2 year warranty?",
+      "original": "How long is the NovaBook Air warranty?",
+      "rewritten": "How long is the NovaBook Air 2 year warranty?",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "1 year"
+      ],
+      "expected_safe": false,
+      "note": "A longer warranty is inserted."
+    },
+    {
+      "id": "t_h_window_elig",
+      "split": "test",
+      "label": "harmful",
+      "category": "intent",
+      "query": "What is the PixelTab return window?",
+      "rewrite": "Are PixelTab returns allowed?",
+      "original": "What is the PixelTab return window?",
+      "rewritten": "Are PixelTab returns allowed?",
+      "gold_doc_ids": [
+        "pixeltab"
+      ],
+      "expected_facts": [
+        "return window is 7 days"
+      ],
+      "expected_safe": false,
+      "note": "Window length and whether a return is allowed are different questions."
+    },
+    {
+      "id": "t_h_claim_vs_length",
+      "split": "test",
+      "label": "harmful",
+      "category": "temporal",
+      "query": "How soon must I file a warranty claim?",
+      "rewrite": "How long does the base warranty last?",
+      "original": "How soon must I file a warranty claim?",
+      "rewritten": "How long does the base warranty last?",
+      "gold_doc_ids": [
+        "warranty_claims"
+      ],
+      "expected_facts": [
+        "within 7 days"
+      ],
+      "expected_safe": false,
+      "note": "Filing deadline rewritten as the length of cover."
+    },
+    {
+      "id": "t_h_worldwide",
+      "split": "test",
+      "label": "harmful",
+      "category": "scope",
+      "query": "The Northwind warranty is not valid outside India.",
+      "rewrite": "The Northwind warranty is valid worldwide.",
+      "original": "The Northwind warranty is not valid outside India.",
+      "rewritten": "The Northwind warranty is valid worldwide.",
+      "gold_doc_ids": [
+        "intl_warranty"
+      ],
+      "expected_facts": [
+        "not valid outside India"
+      ],
+      "expected_safe": false,
+      "note": "A geographic limit becomes worldwide cover."
+    },
+    {
+      "id": "t_h_sunday",
+      "split": "test",
+      "label": "harmful",
+      "category": "constraint",
+      "query": "HomeScreen installation on Sunday",
+      "rewrite": "HomeScreen installation in Bangalore",
+      "original": "HomeScreen installation on Sunday",
+      "rewritten": "HomeScreen installation in Bangalore",
+      "gold_doc_ids": [
+        "installation"
+      ],
+      "expected_facts": [
+        "not available on Sundays"
+      ],
+      "expected_safe": false,
+      "note": "The closed day is replaced by a city, so retrieval can miss the Sunday ban."
+    },
+    {
+      "id": "t_a_latest",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "ambiguity",
+      "query": "Which is the latest tablet?",
+      "rewrite": "PixelTab Mini specifications",
+      "original": "Which is the latest tablet?",
+      "rewritten": "PixelTab Mini specifications",
+      "gold_doc_ids": [
+        "pixeltab_mini"
+      ],
+      "expected_facts": [
+        "September 2025"
+      ],
+      "expected_safe": true,
+      "note": "Mini launched after the PixelTab, so it is the latest tablet, but the user did not say the name."
+    },
+    {
+      "id": "t_a_cheap",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "ambiguity",
+      "query": "I want the cheap laptop, not a tablet.",
+      "rewrite": "I want the NovaBook Lite, not a tablet.",
+      "original": "I want the cheap laptop, not a tablet.",
+      "rewritten": "I want the NovaBook Lite, not a tablet.",
+      "gold_doc_ids": [
+        "novabook_lite"
+      ],
+      "expected_facts": [
+        "Rs 28000"
+      ],
+      "expected_safe": false,
+      "note": "Lite is the cheap laptop. Naming it is a resolution, not a paraphrase."
+    },
+    {
+      "id": "t_a_month",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "semantic_equivalent",
+      "query": "NovaBook Pro can be returned for 30 days.",
+      "rewrite": "NovaBook Pro can be returned for about a month.",
+      "original": "NovaBook Pro can be returned for 30 days.",
+      "rewritten": "NovaBook Pro can be returned for about a month.",
+      "gold_doc_ids": [
+        "novabook_pro"
+      ],
+      "expected_facts": [
+        "30 days"
+      ],
+      "expected_safe": true,
+      "note": "About a month is close to 30 days and slightly looser."
+    },
+    {
+      "id": "t_a_screen",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "entity",
+      "query": "How much is a screen repair?",
+      "rewrite": "How much is a Bangalore screen repair at Rs 3500?",
+      "original": "How much is a screen repair?",
+      "rewritten": "How much is a Bangalore screen repair at Rs 3500?",
+      "gold_doc_ids": [
+        "repair_bangalore",
+        "repair_delhi"
+      ],
+      "expected_facts": [
+        "screen repair cost starts at Rs"
+      ],
+      "expected_safe": false,
+      "note": "The question does not choose a city. Bangalore's price is not Delhi's price."
+    },
+    {
+      "id": "t_a_free",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "constraint",
+      "query": "Is metro shipping free?",
+      "rewrite": "Is metro shipping free on orders over Rs 2000?",
+      "original": "Is metro shipping free?",
+      "rewritten": "Is metro shipping free on orders over Rs 2000?",
+      "gold_doc_ids": [
+        "shipping_metro"
+      ],
+      "expected_facts": [
+        "over Rs 2000"
+      ],
+      "expected_safe": false,
+      "note": "The threshold is the real rule, and it was not in the question."
+    },
+    {
+      "id": "t_a_couple",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "semantic_equivalent",
+      "query": "Do I have a couple of weeks to return the NovaBook Air?",
+      "rewrite": "Do I have 14 days to return the NovaBook Air?",
+      "original": "Do I have a couple of weeks to return the NovaBook Air?",
+      "rewritten": "Do I have 14 days to return the NovaBook Air?",
+      "gold_doc_ids": [
+        "novabook_air"
+      ],
+      "expected_facts": [
+        "14 days"
+      ],
+      "expected_safe": true,
+      "note": "Couple of weeks is an inexact way to say the 14 day window."
+    },
+    {
+      "id": "t_a_lakh",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "number",
+      "query": "Show laptops under a lakh.",
+      "rewrite": "Show laptops under Rs 85000.",
+      "original": "Show laptops under a lakh.",
+      "rewritten": "Show laptops under Rs 85000.",
+      "gold_doc_ids": [
+        "novabook_air",
+        "novabook_lite",
+        "novabook_pro"
+      ],
+      "expected_facts": [
+        "NovaBook"
+      ],
+      "expected_safe": false,
+      "note": "A lakh is Rs 100000. Rs 85000 is a different ceiling."
+    },
+    {
+      "id": "t_a_cancel",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "temporal",
+      "query": "How do I cancel Northcloud?",
+      "rewrite": "When is Northcloud data deleted after cancellation?",
+      "original": "How do I cancel Northcloud?",
+      "rewritten": "When is Northcloud data deleted after cancellation?",
+      "gold_doc_ids": [
+        "northcloud"
+      ],
+      "expected_facts": [
+        "cancel Northcloud anytime"
+      ],
+      "expected_safe": false,
+      "note": "Cancellation and the deletion clock are related and not the same request."
+    },
+    {
+      "id": "t_a_newer",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "scope",
+      "query": "NovaBook Pro or newer lease options",
+      "rewrite": "NovaBook Pro lease options",
+      "original": "NovaBook Pro or newer lease options",
+      "rewritten": "NovaBook Pro lease options",
+      "gold_doc_ids": [
+        "business_lease"
+      ],
+      "expected_facts": [
+        "12 months"
+      ],
+      "expected_safe": false,
+      "note": "Or newer is dropped. The catalog has no newer Pro, which is why some reviewers would allow it."
+    },
+    {
+      "id": "t_a_mountains",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "entity",
+      "query": "Remote delivery into the mountains before 2025",
+      "rewrite": "Shipping to Ladakh before 2025",
+      "original": "Remote delivery into the mountains before 2025",
+      "rewritten": "Shipping to Ladakh before 2025",
+      "gold_doc_ids": [
+        "shipping_remote"
+      ],
+      "expected_facts": [
+        "before 2025"
+      ],
+      "expected_safe": false,
+      "note": "Mountain is resolved to Ladakh. The date constraint is kept."
+    },
+    {
+      "id": "t_a_extended",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "scope",
+      "query": "What warranty comes with a Northwind laptop?",
+      "rewrite": "What extended warranty can I register within 30 days?",
+      "original": "What warranty comes with a Northwind laptop?",
+      "rewritten": "What extended warranty can I register within 30 days?",
+      "gold_doc_ids": [
+        "warranty_base"
+      ],
+      "expected_facts": [
+        "base warranty is 1 year"
+      ],
+      "expected_safe": false,
+      "note": "The base warranty is the default. Extended cover is a narrower product."
+    },
+    {
+      "id": "t_a_sameday",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "temporal",
+      "query": "Do you offer same-day delivery?",
+      "rewrite": "Do you offer express next-day delivery for Rs 199?",
+      "original": "Do you offer same-day delivery?",
+      "rewritten": "Do you offer express next-day delivery for Rs 199?",
+      "gold_doc_ids": [
+        "shipping_express"
+      ],
+      "expected_facts": [
+        "next-day delivery"
+      ],
+      "expected_safe": false,
+      "note": "Same-day and next-day are neighboring promises, not the same promise."
+    },
+    {
+      "id": "t_syn_bundle",
+      "split": "test",
+      "label": "safe",
+      "category": "synonym",
+      "query": "What is the education bundle price?",
+      "rewrite": "What does the education bundle cost?",
+      "original": "What is the education bundle price?",
+      "rewritten": "What does the education bundle cost?",
+      "gold_doc_ids": [
+        "education_bundle"
+      ],
+      "expected_facts": [
+        "Rs 46000"
+      ],
+      "expected_safe": true,
+      "note": "Price and cost ask for the same figure."
+    },
+    {
+      "id": "t_h_openbox",
+      "split": "test",
+      "label": "harmful",
+      "category": "number",
+      "query": "The open-box warranty is 90 days.",
+      "rewrite": "The open-box warranty is 2 years.",
+      "original": "The open-box warranty is 90 days.",
+      "rewritten": "The open-box warranty is 2 years.",
+      "gold_doc_ids": [
+        "open_box"
+      ],
+      "expected_facts": [
+        "90 days"
+      ],
+      "expected_safe": false,
+      "note": "Open-box cover is replaced with the full Pro warranty length."
+    },
+    {
+      "id": "t_h_transfer",
+      "split": "test",
+      "label": "harmful",
+      "category": "negation",
+      "query": "The extended warranty is not transferable.",
+      "rewrite": "The extended warranty is transferable.",
+      "original": "The extended warranty is not transferable.",
+      "rewritten": "The extended warranty is transferable.",
+      "gold_doc_ids": [
+        "warranty_extended"
+      ],
+      "expected_facts": [
+        "not transferable"
+      ],
+      "expected_safe": false,
+      "note": "Transfer prohibition removed."
+    },
+    {
+      "id": "t_sem_points",
+      "split": "test",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "Loyalty points expire after 12 months.",
+      "rewrite": "Loyalty points expire after a year.",
+      "original": "Loyalty points expire after 12 months.",
+      "rewritten": "Loyalty points expire after a year.",
+      "gold_doc_ids": [
+        "loyalty"
+      ],
+      "expected_facts": [
+        "12 months"
+      ],
+      "expected_safe": true,
+      "note": "A year and 12 months name the same expiry."
+    },
+    {
+      "id": "t_h_dock",
+      "split": "test",
+      "label": "harmful",
+      "category": "entity",
+      "query": "Is the NorthDock compatible with the NovaBook Lite?",
+      "rewrite": "Is the NorthDock compatible with the NovaBook Air?",
+      "original": "Is the NorthDock compatible with the NovaBook Lite?",
+      "rewritten": "Is the NorthDock compatible with the NovaBook Air?",
+      "gold_doc_ids": [
+        "northdock"
+      ],
+      "expected_facts": [
+        "not compatible with the NovaBook Lite"
+      ],
+      "expected_safe": false,
+      "note": "The compatibility question is moved to a different laptop."
+    },
+    {
+      "id": "t_a_monitor",
+      "split": "test",
+      "label": "ambiguous",
+      "category": "ambiguity",
+      "query": "What does the HomeScreen cost?",
+      "rewrite": "HomeScreen installation costs Rs 799.",
+      "original": "What does the HomeScreen cost?",
+      "rewritten": "HomeScreen installation costs Rs 799.",
+      "gold_doc_ids": [
+        "homescreen_monitor"
+      ],
+      "expected_facts": [
+        "Rs 16000"
+      ],
+      "expected_safe": false,
+      "note": "The monitor has a price and a separate install fee. The rewrite picks the fee."
+    },
+    {
+      "id": "t_filler_mumbai",
+      "split": "test",
+      "label": "safe",
+      "category": "abbreviation",
+      "query": "Please tell me if the Mumbai store is open on Sundays.",
+      "rewrite": "Is the Mumbai store open on Sundays?",
+      "original": "Please tell me if the Mumbai store is open on Sundays.",
+      "rewritten": "Is the Mumbai store open on Sundays?",
+      "gold_doc_ids": [
+        "hours_mumbai"
+      ],
+      "expected_facts": [
+        "open on Sundays"
+      ],
+      "expected_safe": true,
+      "note": "Politeness removed."
+    },
+    {
+      "id": "t_h_deletion",
+      "split": "test",
+      "label": "harmful",
+      "category": "temporal",
+      "query": "Account deletion is completed within 30 days of the request.",
+      "rewrite": "Account deletion is completed within 7 days of the request.",
+      "original": "Account deletion is completed within 30 days of the request.",
+      "rewritten": "Account deletion is completed within 7 days of the request.",
+      "gold_doc_ids": [
+        "account_deletion"
+      ],
+      "expected_facts": [
+        "within 30 days"
+      ],
+      "expected_safe": false,
+      "note": "The deletion clock is shortened to a week."
+    },
+    {
+      "id": "d_sem_premium",
+      "split": "dev",
+      "label": "safe",
+      "category": "semantic_equivalent",
+      "query": "Premium returns are allowed for 30 days.",
+      "rewrite": "Premium returns are allowed for one month.",
+      "original": "Premium returns are allowed for 30 days.",
+      "rewritten": "Premium returns are allowed for one month.",
+      "gold_doc_ids": [
+        "returns_premium"
+      ],
+      "expected_facts": [
+        "30 days"
+      ],
+      "expected_safe": true,
+      "note": "One month stands in for the 30 day premium window."
+    },
+    {
+      "id": "d_h_sleeve",
+      "split": "dev",
+      "label": "harmful",
+      "category": "entity",
+      "query": "The AirSleeve fits only the NovaBook Air.",
+      "rewrite": "The AirSleeve fits only the NovaBook Pro.",
+      "original": "The AirSleeve fits only the NovaBook Air.",
+      "rewritten": "The AirSleeve fits only the NovaBook Pro.",
+      "gold_doc_ids": [
+        "airsleeve"
+      ],
+      "expected_facts": [
+        "fits only the NovaBook Air"
+      ],
+      "expected_safe": false,
+      "note": "The only compatible laptop is swapped."
+    },
+    {
+      "id": "d_a_charger",
+      "split": "dev",
+      "label": "ambiguous",
+      "category": "ambiguity",
+      "query": "How much is the 65W charger?",
+      "rewrite": "The ChargeBrick price is Rs 2499.",
+      "original": "How much is the 65W charger?",
+      "rewritten": "The ChargeBrick price is Rs 2499.",
+      "gold_doc_ids": [
+        "chargebrick"
+      ],
+      "expected_facts": [
+        "Rs 2499"
+      ],
+      "expected_safe": false,
+      "note": "ChargeBrick is the 65W charger. The rewrite also states the price the user did not quote."
+    },
+    {
+      "id": "t_h_holiday",
+      "split": "test",
+      "label": "harmful",
+      "category": "negation",
+      "query": "The Bangalore flagship is closed on public holidays.",
+      "rewrite": "The Bangalore flagship is open on public holidays.",
+      "original": "The Bangalore flagship is closed on public holidays.",
+      "rewritten": "The Bangalore flagship is open on public holidays.",
+      "gold_doc_ids": [
+        "hours_bangalore"
+      ],
+      "expected_facts": [
+        "closed on public holidays"
+      ],
+      "expected_safe": false,
+      "note": "Holiday closure flipped."
+    }
+  ]
+}
